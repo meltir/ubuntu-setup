@@ -5,7 +5,7 @@ mkdir work
 sudo apt install -y mc screen vim htop git net-tools lynx smartmontools apt-transport-https \
 ca-certificates curl software-properties-common autoconf autoconf-archive \
 autogen automake git python-pymongo python-yaml uuid-dev lm-sensors speedtest-cli \
-glances cmake
+glances cmake etherwake
 sudo sensors-detect
 bash <(curl -Ss https://my-netdata.io/kickstart.sh) --dont-wait
 
