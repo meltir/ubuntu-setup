@@ -2,10 +2,10 @@
 mkdir temp
 mkdir work
 
-sudo apt install -y mc screen vim htop git net-tools lynx smartmontools apt-transport-https \
+sudo apt install -y git etherwake ncdu byobu mc screen vim htop wget git net-tools lynx smartmontools apt-transport-https \
 ca-certificates curl software-properties-common autoconf autoconf-archive \
-autogen automake git python-pymongo python-yaml uuid-dev lm-sensors speedtest-cli \
-glances cmake etherwake
+autogen automake python-pymongo python-yaml uuid-dev lm-sensors speedtest-cli \
+ cmake 
 sudo sensors-detect
 bash <(curl -Ss https://my-netdata.io/kickstart.sh) --dont-wait
 
@@ -37,3 +37,12 @@ sudo usermod -aG docker meltir
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 sudo apt upgrade -y
+
+
+### ubuntu vms
+# resize disk to full size
+
+sudo growpart /dev/vda 3
+sudo lvextend --resizefs -l +100%FREE ubuntu-vg/ubuntu-lv
+sudo resize2fs /dev/ubuntu-vg/ubuntu-lv
+
